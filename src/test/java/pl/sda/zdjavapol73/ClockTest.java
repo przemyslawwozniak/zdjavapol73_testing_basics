@@ -3,6 +3,8 @@ package pl.sda.zdjavapol73;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class ClockTest {
 
@@ -48,6 +50,14 @@ public class ClockTest {
     //Clock(24, 00) -> nieprawidlowe, h_max = 23 -> IllegalArgumentException(hour...)
     @Test
     void could_not_create_and_init_clock_hour_above_upper_limit_23() {
+        //given
+
+
+        //when
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            clock = new Clock(24);
+        });
 
     }
 
@@ -71,7 +81,17 @@ public class ClockTest {
     //12:00 + 120min -> 14:00
     @Test
     void should_add_120_mins_to_clock_12_00_modifies_clock_to_14_00() {
+        //given
+        clock = new Clock(12, 0);
 
+        //when
+        clock.addMinutes(120);
+
+        //then
+        Assertions.assertThat(clock).isNotNull();
+        Assertions.assertThat(clock.getHours()).isEqualTo(14);
+        Assertions.assertThat(clock.getMinutes()).isEqualTo(0);
+        Assertions.assertThat(clock.toString()).isEqualTo("14:00");
     }
     //09:55 + 5min -> 10:00
     @Test
@@ -94,6 +114,7 @@ public class ClockTest {
 
     }
     //12:00 + (-60min) -> IllegalArgumentException
+    //wymaga modyfikacji metody addMinutes
     @Test
     void throws_on_adding_minus_60_mins_to_clock_12_00() {
 
@@ -103,7 +124,17 @@ public class ClockTest {
     //23:55 + 00:10 -> 00:05
     @Test
     void should_add_clock_00_10_to_clock_23_55_modifies_clock_to_00_05() {
+        //given
+        clock = new Clock(23, 55);
+        Clock anotherClock = new Clock(0, 10);
+        //when
+        clock.addClock(anotherClock);
 
+        //then
+        Assertions.assertThat(clock).isNotNull();
+        Assertions.assertThat(clock.getHours()).isEqualTo(0);
+        Assertions.assertThat(clock.getMinutes()).isEqualTo(5);
+        Assertions.assertThat(clock.toString()).isEqualTo("00:05");
     }
     //2:00 + 12:00 -> 00:00
     @Test
@@ -148,6 +179,7 @@ public class ClockTest {
 
     }
     //9:30 + (-1h) -> IllegalArgumentException
+    //modyfikacja addHours
     @Test
     void throws_on_adding_minus_1_hour_to_clock_09_30() {
 
@@ -155,6 +187,7 @@ public class ClockTest {
 
     //6. dodawanie godzin i minut -> j/w, np. addHoursAndMinutes(1, 55) -> addMinutes(115)
     //11:05 + 1h 55min -> 13:00
+    //nowa metoda addHoursAndMinutes(int hours, int minutes) ---> hint: popatrz na addClock
     @Test
     void should_add_1_hour_and_55_mins_to_clock_11_05_modifies_clock_to_13_00() {
 
