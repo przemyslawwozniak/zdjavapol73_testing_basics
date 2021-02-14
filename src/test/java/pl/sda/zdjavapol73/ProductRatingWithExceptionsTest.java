@@ -7,10 +7,11 @@ import org.junit.jupiter.api.Test;
 
 public class ProductRatingWithExceptionsTest {
 
+    //JUnit przy uruchomieniu KAZDEJ metody testowej tworzy nowa instancje klasy testowej
+    private ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
+
     @Test
     void should_initialize_product_rating_score() {  //shouldInitializeProductRatingScore
-        ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
-
         //Assertions.assertEquals(0, pr.getScore());    //JUnit 5, latwo pomylic kolejnosc argumentow
         Assertions.assertThat(pr.getScore()).isEqualTo(0);  //AssertJ - czytelniejszy
     }
@@ -18,7 +19,6 @@ public class ProductRatingWithExceptionsTest {
     @Test
     void should_set_score_to_5_when_given_5() {
         //given
-        ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
 
         //when
         pr.setScore(5);
@@ -30,7 +30,6 @@ public class ProductRatingWithExceptionsTest {
     @Test
     void should_set_score_to_1_when_given_1() {
         //given
-        ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
 
         //when
         pr.setScore(1);
@@ -42,7 +41,6 @@ public class ProductRatingWithExceptionsTest {
     @Test
     void should_set_score_to_10_when_given_10() {
         //given
-        ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
 
         //when
         pr.setScore(10);
@@ -54,7 +52,6 @@ public class ProductRatingWithExceptionsTest {
     @Test
     void should_throw_when_given_11() {
         //given
-        ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
 
         //when
         //then
@@ -67,7 +64,6 @@ public class ProductRatingWithExceptionsTest {
     @Test
     void should_throw_when_given_0() {
         //given
-        ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
 
         //when
         //then
@@ -79,7 +75,6 @@ public class ProductRatingWithExceptionsTest {
     @Test
     void should_throw_when_given_minus10() {
         //given
-        ProductRatingWithExceptions pr = new ProductRatingWithExceptions();
 
         //when
         //then

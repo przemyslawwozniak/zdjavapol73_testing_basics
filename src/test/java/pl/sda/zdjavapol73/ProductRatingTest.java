@@ -1,13 +1,24 @@
 package pl.sda.zdjavapol73;
 
 import org.assertj.core.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class ProductRatingTest {
 
+    private ProductRating pr;
+
+    //de facto zalatwione przez reinicjalizacje klasy testowej przy uruchomieniu kazdej metody testowej
+    //tak jak w tescie ProductRatingWithExceptionsTest
+    //new ProductRatingTest()
+    @BeforeEach
+    void setup() {
+        pr = new ProductRating();
+        System.out.println("Wykonano metode 'setup'");
+    }
+
     @Test
     void should_initialize_product_rating_score() {  //shouldInitializeProductRatingScore
-        ProductRating pr = new ProductRating();
 
         //Assertions.assertEquals(0, pr.getScore());    //JUnit 5, latwo pomylic kolejnosc argumentow
         Assertions.assertThat(pr.getScore()).isEqualTo(0);  //AssertJ - czytelniejszy
@@ -16,7 +27,6 @@ public class ProductRatingTest {
     @Test
     void should_set_score_to_5_when_given_5() {
         //given
-        ProductRating pr = new ProductRating();
 
         //when
         pr.setScore(5);
@@ -28,7 +38,6 @@ public class ProductRatingTest {
     @Test
     void should_set_score_to_1_when_given_1() {
         //given
-        ProductRating pr = new ProductRating();
 
         //when
         pr.setScore(1);
@@ -40,7 +49,6 @@ public class ProductRatingTest {
     @Test
     void should_set_score_to_10_when_given_10() {
         //given
-        ProductRating pr = new ProductRating();
 
         //when
         pr.setScore(10);
@@ -52,7 +60,6 @@ public class ProductRatingTest {
     @Test
     void should_set_score_to_10_when_given_11() {
         //given
-        ProductRating pr = new ProductRating();
 
         //when
         pr.setScore(11);
@@ -64,7 +71,6 @@ public class ProductRatingTest {
     @Test
     void should_set_score_to_1_when_given_0() {
         //given
-        ProductRating pr = new ProductRating();
 
         //when
         pr.setScore(0);
@@ -76,7 +82,6 @@ public class ProductRatingTest {
     @Test
     void should_set_score_to_1_when_given_minus10() {
         //given
-        ProductRating pr = new ProductRating();
 
         //when
         pr.setScore(-10);
