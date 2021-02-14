@@ -13,10 +13,6 @@ public class ProductRatingTest {
         Assertions.assertThat(pr.getScore()).isEqualTo(0);  //AssertJ - czytelniejszy
     }
 
-    /*
-        This is a test commit
-     */
-
     @Test
     void should_set_score_to_5_when_given_5() {
         //given

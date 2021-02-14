@@ -12,7 +12,15 @@ public class ProductRating {
     }
 
     public void setScore(int score) {
-        this.score = score;
+        if(score < 1) {
+            this.score = 1;
+        }
+        else if(score > 10) {
+            this.score = 10;
+        }
+        else {
+            this.score = score;
+        }
     }
 
 }
