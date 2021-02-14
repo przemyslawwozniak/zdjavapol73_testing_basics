@@ -117,14 +117,21 @@ public class ClockTest {
     //wymaga modyfikacji metody addMinutes
     @Test
     void throws_on_adding_minus_60_mins_to_clock_12_00() {
+        //given
+        clock = new Clock(12);
 
+        //when
+        //then
+        assertThrows(IllegalArgumentException.class, () -> {
+            clock.addMinutes(-60);
+        });
     }
 
     //4. dodawanie innego obiektu zegara do 'tego' zegara
 
     @Test
     void throws_NullPointerException_on_adding_null_clock() {
-        
+
     }
 
     //23:55 + 00:10 -> 00:05

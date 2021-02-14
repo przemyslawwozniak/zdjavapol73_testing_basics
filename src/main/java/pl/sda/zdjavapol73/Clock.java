@@ -43,6 +43,10 @@ public class Clock {
     //hoursFromMinutes = 1 -> 23 + 1 = 24 -> 24 % 24 = 0 (hours)
     //65 - 1 * 60 = 5 (minutes)
     public void addMinutes(int minutes) {
+        if(minutes < 0) {
+            throw new IllegalArgumentException();
+        }
+
         int summedMinutes = this.minutes + minutes;
         if(summedMinutes > 59) {
             int hoursFromMinutes = summedMinutes/60;    //61/60 = 1; 30/60 = 0
