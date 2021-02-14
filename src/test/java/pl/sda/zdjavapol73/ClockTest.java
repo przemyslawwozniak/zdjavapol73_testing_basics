@@ -121,6 +121,12 @@ public class ClockTest {
     }
 
     //4. dodawanie innego obiektu zegara do 'tego' zegara
+
+    @Test
+    void throws_NullPointerException_on_adding_null_clock() {
+        
+    }
+
     //23:55 + 00:10 -> 00:05
     @Test
     void should_add_clock_00_10_to_clock_23_55_modifies_clock_to_00_05() {
