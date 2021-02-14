@@ -14,11 +14,7 @@ public class ProductRatingTest {
     }
 
     /*
-    2. setScore(1)	//wartosci graniczne
-    3. setScore(10)	//wartosci graniczne
-    4. setScore(11) -> 10 //wyjscie poza zakres - nieprawidlowe wartosci
-    5. setScore(0) -> 1
-    6. setScore(-10) -> 1
+        This is a test commit
      */
 
     @Test
